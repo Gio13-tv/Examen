@@ -1,0 +1,31 @@
+@startuml Examenempleado
+class Empleado {
+  - RFC : int
+  - Apellido : str
+  - Nombres : str
+  +  __init__(self, rfc, apellidos, nombres)
+  + mostrar_Informacion()
+}
+
+abstract class EmpleadoVendedor{
+    - Monto_vendido: int
+    - tasa_comision: float
+    + def __init__(self, monto_vendido, tasa_comision)
+    + Ingresos()
+    + Bonificacion()
+    + Descuento()
+    + Sueldo_Neto()
+}
+
+abstract class EmpleadoPermanente{
+    - Sueldo_base: float
+    - NSS: int
+    + def __init__(self, sueldo_base, nss)
+    + Ingresos()
+    + Descuento()
+    + Sueldo_neto()
+}
+
+Empleado <|-- EmpleadoVendedor
+Empleado <|-- EmpleadoPermanente
+@enduml
